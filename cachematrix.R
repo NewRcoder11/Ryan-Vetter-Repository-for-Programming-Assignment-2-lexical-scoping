@@ -1,12 +1,8 @@
-## Put comments here that give an overall description of what your
-## functions do
-
 ## these 2 functions allow a user to calculate the inverse of a matrix,
 ## and store it to be retrieved for later use.  the benefit is that the 
 ## inverse can be calculated once and called within other functions as opposed
 ## to have to re-calculate it.  
 
-## Write a short comment describing this function
 ## This function takes a matrix as an argument and creates a "makeCacheMatrix"
 ## object. This object is a list of 4 "Self-contained" functions that can be 
 ## called to set and retrieve the matrix and it's inverse. The set() and 
@@ -51,3 +47,7 @@ cacheSolve <- function(x, ...) {
   x$setinv(inv)
   inv
 }
+
+
+
+
