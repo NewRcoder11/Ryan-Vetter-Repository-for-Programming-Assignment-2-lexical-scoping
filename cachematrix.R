@@ -47,7 +47,31 @@ cacheSolve <- function(x, ...) {
   x$setinv(inv)
   inv
 }
++ m1<-matrix(c(.5,-.25,-1,.75),2,2)
++ m1
+[,1]  [,2]
+[1,]  0.50 -1.00
+[2,] -0.25  0.75
 
+> myMatrix<-makeCacheMatrix(m1)
+> myMatrix$get()
+[,1]  [,2]
+[1,]  0.50 -1.00
+[2,] -0.25  0.75
+> myMatrix$getinv()
+NULL
+> cacheSolve(myMatrix)
+[,1] [,2]
+[1,]    6    8
+[2,]    2    4
 
-
+> myMatrix$getinv()
+[,1] [,2]
+[1,]    6    8
+[2,]    2    4
+> cacheSolve(myMatrix)
+getting cached data
+[,1] [,2]
+[1,]    6    8
+[2,]    2    4
 
