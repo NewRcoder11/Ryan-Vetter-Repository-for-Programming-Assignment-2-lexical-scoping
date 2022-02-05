@@ -1,11 +1,25 @@
-## these 2 functions allow a user to calcluate the inverse of a matrix,
+## Put comments here that give an overall description of what your
+## functions do
+
+## these 2 functions allow a user to calculate the inverse of a matrix,
 ## and store it to be retrieved for later use.  the benefit is that the 
 ## inverse can be calculated once and called within other functions as opposed
 ## to have to re-calculate it.  
 
-## takes a matrix as an argument and creates a "makeCacheMatrix" object.   
-## This object is a list of 4 "Self-contained" functions that can be called on
-## that instance of the matrix to set/retrieve the matrix and it's inverse
+## Write a short comment describing this function
+## This function takes a matrix as an argument and creates a "makeCacheMatrix"
+## object. This object is a list of 4 "Self-contained" functions that can be 
+## called to set and retrieve the matrix and it's inverse. The set() and 
+## setinverse() functions use the <<- operator which allows for the assignment 
+## of values to the variables 'x' and 'inv' in the parent environment. Calling 
+## set() changes the the value of 'x', which is the matrix argument 
+## in the parent environment. The set() function allows the matrix to be changed
+## without creating another makeCacheMatrix object.  
+## Calling setinv() assigns the matrix inverse 
+## (calculated in cacheSolve()) to the 'inv' variable in the 
+## parent environment (the makeCacheMatrix object), which allows it to be stored
+## and called later. lexical scoping allows this to be stored outside of the 
+## setinv() function and exist after setinv() is run.  
 
 makeCacheMatrix <- function(x = matrix()) {
   inv<-NULL
@@ -20,8 +34,6 @@ makeCacheMatrix <- function(x = matrix()) {
        setinv=setinv,
        getinv=getinv)
 }
-
-
 ## For a "makeCacheMatrix" object entered as an argument, cacheSolve checks if 
 ## an inverse is already stored in its environment. If "yes", it returns
 ## the inverse stored, which spares an re-calculation. If not, it calculates 
@@ -38,5 +50,4 @@ cacheSolve <- function(x, ...) {
   inv<-solve(data,...)
   x$setinv(inv)
   inv
-  
 }
